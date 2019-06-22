@@ -1,7 +1,7 @@
 # How to use?
 ``` javascript
 var express = require('express')
-  , routree = require('routree')
+  , routree = require('express-routree')
   , app = express()
   , defaultRouter = express.Router()
 
