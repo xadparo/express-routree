@@ -14,7 +14,7 @@ function toDashCase(camelString) {
   return camelString.replace(/[A-Z]/g, big => `-${big.toLowerCase()}`)
 }
 
-function routree(router, tree = {}) {
+function routree(router = Router(), tree = {}) {
   entries(tree).forEach(([prop, originLeaf]) => {
     var leafProm = ToLikePromise(originLeaf)
 
