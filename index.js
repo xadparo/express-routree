@@ -19,7 +19,9 @@ function routree(router = Router(), tree = {}) {
     var leafProm = ToLikePromise(originLeaf)
 
     leafProm.then(leaf => {
-      if(leaf instanceof Function) {
+      if(Array.isArray(leaf)) {
+        router[prop]('/', ...leaf)
+      } else if(leaf instanceof Function) {
         router[prop]('/', leaf)
       } else if(typeof leaf === 'object') {
         router.use(`/${toDashCase(prop)}`, routree(Router(), leaf))
