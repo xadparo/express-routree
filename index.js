@@ -21,7 +21,7 @@ function routree(router = Router(), tree = {}) {
     leafProm.then(leaf => {
       if(leaf instanceof Function) {
         router[prop]('/', leaf)
-      } else  if(typeof leaf === 'object') {
+      } else if(typeof leaf === 'object') {
         router.use(`/${toDashCase(prop)}`, routree(Router(), leaf))
       }
     })
